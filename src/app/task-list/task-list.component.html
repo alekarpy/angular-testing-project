@@ -1,1 +1,29 @@
-<p>task-list works!</p>
+<body>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <button type="submit" [disabled]="userForm.invalid" (click)="addTask(userForm.value.tarea)">Agregar Tarea</button>
+    <button type="button" (click)="deleteTask(userForm.value.tarea)">Eliminar</button>
+    <button type="button" (click)="updateTask(userForm.value.tarea)">Actualizar</button>
+        <label for="tarea">Tarea:</label>
+        <input type="text" id="tarea" name="tarea" formControlName="tarea" > 
+
+    <div> 
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion" formControlName="descripcion">
+
+    </div>
+
+    <div> 
+        <label for ="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" formControlName="fecha">
+    </div>
+
+
+</form>
+
+</body>
+
+<div class="estado">
+    Formulario Valido: {{userForm.valid}}
+  </div>
